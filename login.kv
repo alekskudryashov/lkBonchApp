@@ -1,0 +1,45 @@
+<LoginForm>:
+    orientation: 'vertical'
+
+    AnchorLayout:
+        anchor_y: 'center'
+        anchor_x: 'center'
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: 0.5, 0.3
+
+            MDTextField:
+                hint_text: 'E-mail'
+                color_mode: 'accent'
+                multiline: False
+
+            MDTextField:
+                hint_text: 'Пароль'
+                color_mode: 'accent'
+                multiline: False
+
+            AnchorLayout:
+                anchor_x: 'left'
+                anchor_y: 'top'
+
+                BoxLayout:
+                    size_hint: 1, 0.4
+                    spacing: 10
+
+                    CheckBox:
+                        color_mode: 'accent'
+                        size_hint: 0.1, 1
+
+                    MDLabel:
+                        text_size: self.size
+                        font_size: '11sp'
+                        halign: 'left'
+                        valign: 'middle'
+                        text: 'Сохранить сессию'
+
+            BoxLayout:
+                MDRaisedButton:
+                    color_mode: 'accent'
+                    size_hint: 0.7, 0.7
+                    text: 'Войти'

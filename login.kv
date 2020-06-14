@@ -1,45 +1,53 @@
 <LoginForm>:
     orientation: 'vertical'
 
+    login: page_auth_login
+    password: page_auth_password
+
     AnchorLayout:
         anchor_y: 'center'
-        anchor_x: 'center'
 
         BoxLayout:
             orientation: 'vertical'
-            size_hint: 0.5, 0.3
-
-            MDTextField:
-                hint_text: 'E-mail'
-                color_mode: 'accent'
-                multiline: False
-
-            MDTextField:
-                hint_text: 'РџР°СЂРѕР»СЊ'
-                color_mode: 'accent'
-                multiline: False
-
-            AnchorLayout:
-                anchor_x: 'left'
-                anchor_y: 'top'
-
-                BoxLayout:
-                    size_hint: 1, 0.4
-                    spacing: 10
-
-                    CheckBox:
-                        color_mode: 'accent'
-                        size_hint: 0.1, 1
-
-                    MDLabel:
-                        text_size: self.size
-                        font_size: '11sp'
-                        halign: 'left'
-                        valign: 'middle'
-                        text: 'РЎРѕС…СЂР°РЅРёС‚СЊ СЃРµСЃСЃРёСЋ'
+            size_hint: 1, 0.5
 
             BoxLayout:
+                padding: [100, 0]
+                MDTextField:
+                    id: page_auth_login
+                    multiline: False
+
+            BoxLayout:
+                padding: [100, 0]
+                MDTextField:
+                    id: page_auth_password
+                    password: True
+                    multiline: False
+
+            BoxLayout:
+                AnchorLayout:
+                    anchor_x: 'left'
+                    anchor_y: 'top'
+                    size_hint: 1, 1
+
+                    GridLayout:
+                        cols: 2
+                        padding: [100, 0]
+                        spacing: 5
+
+                        CheckBox:
+                            size_hint: 0.1, 1
+
+                        MDLabel:
+                            text_size: self.size
+                            halign: 'left'
+                            valign: 'middle'
+                            text: 'Сохранить сессию'
+
+            BoxLayout:
+                padding: [100, 0]
                 MDRaisedButton:
-                    color_mode: 'accent'
-                    size_hint: 0.7, 0.7
-                    text: 'Р’РѕР№С‚Рё'
+                    size_hint: 0.5, 0.5
+                    text: 'Войти'
+                    on_release:
+                        root.page_auth_get_data()
